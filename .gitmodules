@@ -1,0 +1,3 @@
+[submodule "liniapower"]
+	path = liniapower
+	url = git@gitlab.com:linda.swiss/lindapower/liniapower.git

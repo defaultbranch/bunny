@@ -1,6 +1,8 @@
 Thinking about adopting <https://bun.sh/>, first impressions:
 
-# The Docker Image Tags are confusing
+# Issues
+
+## The Docker Image Tags are confusing
 
 Docker: <https://hub.docker.com/r/oven/bun/>
 
@@ -17,10 +19,28 @@ Today, there is:
     - 1.0-debian
     - 1.0.20-debian
 
-(there are more tags, e.g. for `slim` (Alpine Linux) and `canary`)
+There are more tags, e.g. `slim` (Alpine Linux) or `canary` (whatever).
 
-# The GitHub has 2k Issues
+### The Docker Debian is outdated
+
+When you run `apt update` in the `oven/bun:debian`, you see its Debian 11 (bullseye).
+
+## The GitHub has >2k Issues
 
 GIT: <https://github.com/oven-sh/bun>
 
 Today, there are 2k Issues and 205 pull requests.
+
+# Create and use image using `buildah` and `podman`
+
+This repo comes with a `Dockerfile`, so run:
+
+```
+buildah bud -f Dockerfile -t bunny
+```
+
+and then
+
+```
+podman run -it --rm bunny --version
+```
